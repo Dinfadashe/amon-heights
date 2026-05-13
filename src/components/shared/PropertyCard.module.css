@@ -1,0 +1,17 @@
+.card{position:relative}
+.imgW{display:block;position:relative;overflow:hidden;height:215px;background:var(--gray-100)}
+.img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.card:hover .img{transform:scale(1.06)}
+.badges{position:absolute;top:.7rem;left:.7rem;display:flex;gap:.3rem;flex-wrap:wrap}
+.sold{position:absolute;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:1.4rem;font-weight:700;color:var(--white);letter-spacing:.1em;text-transform:uppercase}
+.ov{position:absolute;inset:0;background:rgba(26,39,68,.38);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity var(--t)}
+.card:hover .ov{opacity:1}
+.vb{display:flex;align-items:center;gap:.4rem;background:var(--white);color:var(--navy);padding:.5rem 1.1rem;border-radius:50px;font-size:.82rem;font-weight:600}
+.body{padding:1rem}
+.loc{display:flex;align-items:center;gap:.3rem;font-size:.77rem;color:var(--gray-400);margin-bottom:.35rem}
+.title{font-family:var(--font-display);font-size:1.02rem;font-weight:600;color:var(--navy);margin-bottom:.35rem;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;transition:color var(--t)}
+.title:hover{color:var(--red)}
+.price{font-size:1.08rem;font-weight:700;color:var(--red);margin-bottom:.7rem}
+.feats{display:flex;gap:.65rem;flex-wrap:wrap;margin-bottom:.8rem}
+.feat{display:flex;align-items:center;gap:.28rem;font-size:.77rem;color:var(--gray-500)}
+.foot{display:flex;align-items:center;justify-content:space-between;padding-top:.7rem;border-top:1px solid var(--gray-100)}

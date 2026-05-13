@@ -1,0 +1,28 @@
+.footer{background:var(--navy);color:var(--white)}
+.top{padding:4rem 0 3rem}
+.grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:3rem}
+.brand{}
+.logo{display:flex;align-items:center;gap:.7rem;margin-bottom:1rem}
+.li{width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid var(--gold)}
+.ln{font-family:var(--font-display);font-size:1.25rem;font-weight:700;color:var(--white)}
+.ln span{color:var(--gold)}
+.ls{font-size:.72rem;color:rgba(255,255,255,.45);letter-spacing:.1em;text-transform:uppercase}
+.tagline{font-size:.84rem;color:rgba(255,255,255,.6);line-height:1.75;margin-bottom:.85rem}
+.address{display:flex;align-items:flex-start;gap:.4rem;font-size:.78rem;color:rgba(255,255,255,.45);margin-bottom:1rem}
+.socials{display:flex;gap:.45rem}
+.soc{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.1);color:rgba(255,255,255,.65);display:flex;align-items:center;justify-content:center;transition:all var(--t)}
+.soc:hover{background:var(--gold);color:var(--navy)}
+.wa:hover{background:#25D366!important;color:var(--white)!important}
+.ch{font-family:var(--font-display);font-size:1rem;font-weight:600;color:var(--gold);margin-bottom:1.1rem}
+.ul{list-style:none;display:flex;flex-direction:column;gap:.45rem}
+.fl{font-size:.83rem;color:rgba(255,255,255,.6);transition:color var(--t)}
+.fl:hover{color:var(--gold)}
+.contacts{display:flex;flex-direction:column;gap:.55rem;margin-bottom:1.1rem}
+.ci{display:flex;align-items:center;gap:.45rem;font-size:.83rem;color:rgba(255,255,255,.6);transition:color var(--t)}
+.ci:hover{color:var(--gold)}
+.footCtas{display:flex;flex-direction:column}
+.bottom{border-top:1px solid rgba(255,255,255,.1);padding:1.1rem 0}
+.bi{display:flex;align-items:center;justify-content:space-between;font-size:.79rem;color:rgba(255,255,255,.4);flex-wrap:wrap;gap:.5rem}
+.bi a{color:var(--gold)}
+@media(max-width:1024px){.grid{grid-template-columns:1fr 1fr;gap:2rem}}
+@media(max-width:600px){.grid{grid-template-columns:1fr;gap:1.5rem}.top{padding:2.5rem 0 2rem}.bi{justify-content:center;text-align:center}}

@@ -1,0 +1,6 @@
+.float{position:fixed;bottom:1.75rem;right:1.75rem;z-index:800;width:56px;height:56px;border-radius:50%;background:#25D366;color:var(--white);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.5);transition:all var(--t);animation:pulse 2.5s infinite}
+.float:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,.7)}
+.float:hover .tip{opacity:1;transform:translateX(-4px)}
+.tip{position:absolute;right:calc(100% + .7rem);top:50%;transform:translateY(-50%);background:var(--gray-800);color:var(--white);padding:.35rem .75rem;border-radius:var(--radius-sm);font-size:.78rem;font-weight:500;white-space:nowrap;opacity:0;transition:all var(--t);pointer-events:none}
+.tip::after{content:'';position:absolute;left:100%;top:50%;transform:translateY(-50%);border:5px solid transparent;border-left-color:var(--gray-800)}
+@keyframes pulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.5)}50%{box-shadow:0 4px 30px rgba(37,211,102,.8),0 0 0 8px rgba(37,211,102,.1)}}
