@@ -33,17 +33,65 @@ import StaffPropertyForm from './pages/staff/StaffPropertyForm'
 
 function ProtectedRoute({ children, adminOnly = false }) {
   const { user, profile, loading } = useAuth()
-  if (loading) return <div className="page-loader"><div className="spinner"/></div>
+
+  // Still loading auth or profile — show spinner, do NOT redirect yet
+  if (loading) {
+    return (
+      <div className="page-loader">
+        <div className="spinner" />
+        <p style={{ marginTop: '1rem', color: 'var(--gray-400)', fontSize: '.9rem' }}>
+          Loading...
+        </p>
+      </div>
+    )
+  }
+
+  // Not logged in at all
   if (!user) return <Navigate to="/login" replace />
-  if (adminOnly && profile?.role !== 'admin') return <Navigate to="/staff" replace />
+
+  // Profile not loaded yet — keep waiting
+  if (!profile) {
+    return (
+      <div className="page-loader">
+        <div className="spinner" />
+      </div>
+    )
+  }
+
+  // Admin-only route but user is not admin
+  if (adminOnly && profile.role !== 'admin') {
+    if (profile.role === 'staff') return <Navigate to="/staff" replace />
+    return <Navigate to="/" replace />
+  }
+
   return children
 }
 
 function StaffRoute({ children }) {
   const { user, profile, loading } = useAuth()
-  if (loading) return <div className="page-loader"><div className="spinner"/></div>
+
+  if (loading) {
+    return (
+      <div className="page-loader">
+        <div className="spinner" />
+      </div>
+    )
+  }
+
   if (!user) return <Navigate to="/login" replace />
-  if (profile?.role !== 'staff' && profile?.role !== 'admin') return <Navigate to="/" replace />
+
+  if (!profile) {
+    return (
+      <div className="page-loader">
+        <div className="spinner" />
+      </div>
+    )
+  }
+
+  if (profile.role !== 'staff' && profile.role !== 'admin') {
+    return <Navigate to="/" replace />
+  }
+
   return children
 }
 
@@ -91,7 +139,13 @@ export default function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <Toaster position="top-right" toastOptions={{ duration: 4000, style: { fontFamily: 'var(--font-body)', fontSize: '.87rem' } }} />
+        <Toaster
+          position="top-right"
+          toastOptions={{
+            duration: 4000,
+            style: { fontFamily: 'var(--font-body)', fontSize: '.87rem' }
+          }}
+        />
         <AppRoutes />
       </AuthProvider>
     </BrowserRouter>
