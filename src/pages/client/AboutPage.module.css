@@ -54,18 +54,44 @@
 .tcT{font-family:var(--font-display);font-size:1.05rem;color:var(--white);margin-bottom:.55rem}
 .tcD{font-size:.83rem;color:rgba(255,255,255,.6);line-height:1.72;margin-bottom:1rem}
 .tcCheck{display:flex;align-items:center;gap:.4rem;font-size:.78rem;color:var(--gold);font-weight:500}
-.teamSec{background:var(--off-white)}
-.teamGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
-.teamCard{background:var(--white);border-radius:var(--radius-xl);padding:1.75rem;box-shadow:var(--shadow);text-align:center;transition:all var(--t)}
-.teamCard:hover{box-shadow:var(--shadow-lg);transform:translateY(-2px)}
-.tmAvatar{width:60px;height:60px;border-radius:50%;background:var(--navy);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:700;margin:0 auto .85rem}
-.tmExp{display:inline-block;background:var(--gold);color:var(--navy);font-size:.72rem;font-weight:700;padding:.18rem .6rem;border-radius:50px;margin-bottom:.6rem}
-.tmName{font-family:var(--font-display);font-size:1rem;color:var(--navy);margin-bottom:.3rem}
-.tmRole{font-size:.8rem;color:var(--red);font-weight:600;margin-bottom:.65rem}
-.tmDesc{font-size:.82rem;color:var(--gray-500);line-height:1.7}
+
+/* FOUNDER SECTION */
+.founderSec{background:var(--off-white)}
+.founderGrid{display:grid;grid-template-columns:320px 1fr;gap:3rem;align-items:flex-start}
+.founderImgWrap{display:flex;flex-direction:column;gap:1rem;position:sticky;top:90px}
+.founderImgBox{border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-xl);background:var(--gray-100);aspect-ratio:3/4;display:flex;align-items:center;justify-content:center}
+.founderImg{width:100%;height:100%;object-fit:cover;object-position:top}
+.founderAvatar{width:100%;height:100%;background:var(--navy);color:var(--gold);font-family:var(--font-display);font-size:5rem;font-weight:700;display:flex;align-items:center;justify-content:center;min-height:380px}
+.founderContact{display:flex;flex-direction:column;gap:.5rem}
+.fcBtn{display:flex;align-items:center;gap:.5rem;padding:.6rem .9rem;background:var(--white);border:1.5px solid var(--gray-200);border-radius:var(--radius);font-size:.82rem;color:var(--navy);font-weight:500;transition:all var(--t)}
+.fcBtn:hover{border-color:var(--navy);background:var(--navy);color:var(--white)}
+.fcBtnWa{display:flex;align-items:center;gap:.5rem;padding:.6rem .9rem;background:#25D366;border-radius:var(--radius);font-size:.82rem;color:var(--white);font-weight:600;transition:all var(--t)}
+.fcBtnWa:hover{background:#1da851}
+.founderProfile{}
+.founderNameRow{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:1.25rem;flex-wrap:wrap}
+.founderName{font-family:var(--font-display);font-size:2rem;color:var(--navy);margin-bottom:.25rem}
+.founderTitle{font-size:.9rem;color:var(--red);font-weight:600}
+.founderBadge{display:flex;align-items:center;gap:.45rem;background:var(--navy);color:var(--gold);padding:.45rem 1rem;border-radius:50px;font-size:.8rem;font-weight:600;white-space:nowrap;flex-shrink:0}
+.founderBio{color:var(--gray-600);line-height:1.88;font-size:.93rem}
+.careerSection{margin-top:1.75rem}
+.careerTitle{font-family:var(--font-display);font-size:1rem;color:var(--navy);margin-bottom:1rem;display:flex;align-items:center;gap:.45rem}
+.timeline{display:flex;flex-direction:column;gap:.75rem}
+.tlItem{display:flex;align-items:flex-start;gap:.85rem}
+.tlYear{font-size:.77rem;font-weight:700;color:var(--white);background:var(--navy);padding:.2rem .55rem;border-radius:50px;white-space:nowrap;flex-shrink:0;min-width:70px;text-align:center}
+.tlDot{width:10px;height:10px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:.35rem}
+.tlInfo{}
+.tlRole{font-size:.87rem;font-weight:600;color:var(--navy)}
+.tlCompany{font-size:.8rem;color:var(--gray-500)}
+.rolesSection{margin-top:1.5rem}
+.rolesGrid{display:flex;flex-direction:column;gap:.5rem}
+.roleItem{display:flex;align-items:center;gap:.55rem;font-size:.87rem;color:var(--gray-700)}
+.expertiseSec{margin-top:1.5rem}
+.expertiseTags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.65rem}
+.expTag{background:var(--navy);color:var(--white);padding:.25rem .75rem;border-radius:50px;font-size:.78rem;font-weight:500}
+.personalSec{margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--gray-200)}
+
 .investSec{background:#111b35;padding:5rem 0}
 .investGrid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-.investTxt{}
 .investPoints{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;margin-top:1.25rem}
 .ipt{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius-lg);padding:1rem 1.1rem}
 .iptVal{font-family:var(--font-display);font-size:1.4rem;font-weight:700;color:var(--gold)}
@@ -90,6 +116,6 @@
 .pdfClose:hover{color:var(--gray-700)}
 .pdfContent{flex:1;overflow:hidden}
 .pdfFrame{width:100%;height:100%;border:none}
-@media(max-width:1100px){.trackGrid{grid-template-columns:repeat(2,1fr)}.valGrid{grid-template-columns:repeat(2,1fr)}.investGrid,.aboutGrid{grid-template-columns:1fr;gap:2rem}.teamGrid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:768px){.statsGrid{grid-template-columns:repeat(2,1fr)}.mvGrid{grid-template-columns:1fr}.trackGrid{grid-template-columns:1fr}.teamGrid{grid-template-columns:1fr}.dlInner{flex-direction:column}.ctaInner{flex-direction:column;align-items:flex-start}.investPoints{grid-template-columns:1fr}.hBtns{flex-direction:column}}
+@media(max-width:1100px){.trackGrid{grid-template-columns:repeat(2,1fr)}.valGrid{grid-template-columns:repeat(2,1fr)}.investGrid,.aboutGrid{grid-template-columns:1fr;gap:2rem}.founderGrid{grid-template-columns:1fr}}
+@media(max-width:768px){.statsGrid{grid-template-columns:repeat(2,1fr)}.mvGrid{grid-template-columns:1fr}.trackGrid{grid-template-columns:1fr}.dlInner{flex-direction:column}.ctaInner{flex-direction:column;align-items:flex-start}.investPoints{grid-template-columns:1fr}.hBtns{flex-direction:column}.founderImgWrap{position:static}.founderNameRow{flex-direction:column}}
 @media(max-width:480px){.valGrid{grid-template-columns:1fr}.pdfBox{height:95vh}}

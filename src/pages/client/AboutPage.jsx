@@ -3,20 +3,18 @@ import { Link } from 'react-router-dom'
 import {
   ShieldCheck, TrendingUp, Users, Zap, Award, Target,
   CheckCircle2, Download, FileText, X, Phone, MessageCircle,
-  Building2, Star, BarChart3
+  Building2, Star, BarChart3, Briefcase, Mail
 } from 'lucide-react'
 import PublicLayout from '../../components/layout/PublicLayout'
 import { CONTACTS } from '../../lib/constants'
 import { getWhatsAppLink } from '../../lib/utils'
 import s from './AboutPage.module.css'
 
-const TEAM = [
-  { name: 'Mr Wale Akinmeji', role: 'CEO / Lead Developer', exp: '15+ yrs', desc: 'Strategic oversight and investor relations. Over a decade of premium real estate development across Abuja.' },
-  { name: 'Arc Samuel Ojukwu Mcdallas', role: 'Lead Architect (MNIA)', exp: '12+ yrs', desc: 'Design and aesthetics. Delivers award-worthy architectural concepts that meet global standards.' },
-  { name: 'Mr Itoro', role: 'Quantity Surveyor', exp: '8+ yrs', desc: 'Cost management and budget control ensuring every project is delivered within financial targets.' },
-  { name: 'Ms Adeola', role: 'Sales & Marketing Manager', exp: '10+ yrs', desc: 'Client acquisition and sales. Has closed hundreds of millions in property transactions across Abuja.' },
-  { name: 'Mr Toyosi Akinwunmi', role: 'Finance & Compliance Officer (CPA)', exp: '7+ yrs', desc: 'Accounting, investor payouts and regulatory compliance ensuring transparency at every step.' },
-  { name: 'Project Engineer', role: 'Structural Engineer', exp: '10+ yrs', desc: 'Structural integrity and compliance. Ensures every development meets the highest safety standards.' },
+const CORE_VALUES = [
+  { icon: ShieldCheck, title: 'Integrity', desc: 'Every transaction and partnership is handled with full transparency and accountability.' },
+  { icon: Award, title: 'Excellence', desc: 'Commitment to top-tier quality and timely project delivery on every development.' },
+  { icon: Zap, title: 'Innovation', desc: 'Adoption of modern building technologies and cutting-edge marketing approaches.' },
+  { icon: Users, title: 'Partnership', desc: 'Prioritizing shared success and long-term investor and client relationships.' },
 ]
 
 const TRACK_RECORD = [
@@ -26,11 +24,15 @@ const TRACK_RECORD = [
   { title: 'Asokoro Villas', type: 'Luxury', desc: 'Semi-detached and terraced luxury villas — managed, marketed and fully sold to high-end buyers.' },
 ]
 
-const CORE_VALUES = [
-  { icon: ShieldCheck, title: 'Integrity', desc: 'Every transaction and partnership is handled with full transparency and accountability.' },
-  { icon: Award, title: 'Excellence', desc: 'Commitment to top-tier quality and timely project delivery on every development.' },
-  { icon: Zap, title: 'Innovation', desc: 'Adoption of modern building technologies and cutting-edge marketing approaches.' },
-  { icon: Users, title: 'Partnership', desc: 'Prioritizing shared success and long-term investor and client relationships.' },
+const CAREER = [
+  { year: '2002', role: 'Relationship Manager', company: 'Platinum Bank (now defunct)' },
+  { year: '2004', role: 'Acting Branch Head', company: 'Platinum Bank' },
+  { year: '2006–2011', role: 'Banking & Finance Expert', company: 'Guarantee Trust Bank (GTB)' },
+  { year: 'Present', role: 'Managing Director', company: 'Amon Heights Limited' },
+  { year: 'Present', role: 'Managing Director', company: 'Millpond Properties Ltd' },
+  { year: 'Present', role: 'Managing Director', company: 'Savvy Steel Construction Ltd' },
+  { year: 'Present', role: 'Chief Operating Officer', company: 'Blacklennial Media Ltd' },
+  { year: 'Present', role: 'Managing Director', company: 'Redbridge Media Production Ltd' },
 ]
 
 export default function AboutPage() {
@@ -63,7 +65,7 @@ export default function AboutPage() {
             {[
               { val: '6B+', label: 'Naira in Properties Delivered' },
               { val: '2019', label: 'Year Founded' },
-              { val: '12+', label: 'Team Members' },
+              { val: '20+', label: 'Years Leadership Experience' },
               { val: '100%', label: 'Sales and Occupancy Rate' },
             ].map(st => (
               <div key={st.label} className={s.statItem}>
@@ -191,24 +193,111 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* TEAM */}
-      <section className={`section ${s.teamSec}`}>
+      {/* MEET THE FOUNDER */}
+      <section className={`section ${s.founderSec}`}>
         <div className="container">
-          <div style={{textAlign:'center',marginBottom:'2.5rem'}}>
-            <div className={s.lbl}>Our People</div>
-            <h2 className={s.th2}>Meet the Leadership Team</h2>
-            <p style={{color:'var(--gray-500)',marginTop:'.5rem'}}>Experienced professionals delivering excellence across every project</p>
+          <div style={{textAlign:'center',marginBottom:'3rem'}}>
+            <div className={s.lbl}>Leadership</div>
+            <h2 className={s.th2}>Meet Our Founder</h2>
+            <p style={{color:'var(--gray-500)',marginTop:'.5rem',maxWidth:500,margin:'.5rem auto 0'}}>The visionary behind Amon Heights Limited</p>
           </div>
-          <div className={s.teamGrid}>
-            {TEAM.map(tm => (
-              <div key={tm.name} className={s.teamCard}>
-                <div className={s.tmAvatar}>{tm.name.split(' ').slice(-1)[0][0]}</div>
-                <div className={s.tmExp}>{tm.exp}</div>
-                <h3 className={s.tmName}>{tm.name}</h3>
-                <div className={s.tmRole}>{tm.role}</div>
-                <p className={s.tmDesc}>{tm.desc}</p>
+
+          <div className={s.founderGrid}>
+            {/* Photo */}
+            <div className={s.founderImgWrap}>
+              <div className={s.founderImgBox}>
+                <img
+                  src="/founder.jpg"
+                  alt="Mr Wale Akinmeji"
+                  className={s.founderImg}
+                  onError={e => {
+                    e.target.style.display = 'none'
+                    e.target.nextSibling.style.display = 'flex'
+                  }}
+                />
+                <div className={s.founderAvatar} style={{display:'none'}}>
+                  WA
+                </div>
               </div>
-            ))}
+              <div className={s.founderContact}>
+                <a href="tel:08126474158" className={s.fcBtn}><Phone size={15}/>08126474158</a>
+                <a href="tel:08051966317" className={s.fcBtn}><Phone size={15}/>08051966317</a>
+                <a href="mailto:amonheights21@gmail.com" className={s.fcBtn}><Mail size={15}/>amonheights21@gmail.com</a>
+                <a href={getWhatsAppLink(CONTACTS.whatsapp1,'Hello! I would like to speak with Mr Wale Akinmeji regarding Amon Heights.')}
+                  target="_blank" rel="noreferrer"
+                  className={s.fcBtnWa}>
+                  <MessageCircle size={15}/>WhatsApp
+                </a>
+              </div>
+            </div>
+
+            {/* Profile */}
+            <div className={s.founderProfile}>
+              <div className={s.founderNameRow}>
+                <div>
+                  <h3 className={s.founderName}>Wale Akinmeji</h3>
+                  <div className={s.founderTitle}>Managing Director / CEO — Amon Heights Limited</div>
+                </div>
+                <div className={s.founderBadge}><Briefcase size={16}/>20+ Years Experience</div>
+              </div>
+
+              <p className={s.founderBio}>
+                Highly accomplished and results-driven leader, Wale Akinmeji brings over two decades of corporate expertise and entrepreneurial acumen to the forefront. His illustrious career spans the banking industry and multiple successful businesses across real estate, construction, media, and steel.
+              </p>
+              <p className={s.founderBio} style={{marginTop:'.75rem'}}>
+                A seasoned expert in strategic leadership, people management, strategic marketing, negotiation and persuasion, business development and networking — Mr. Akinmeji's exceptional blend of corporate experience, entrepreneurial drive, and leadership prowess positions him as a respected figure in his industry.
+              </p>
+
+              {/* Career Timeline */}
+              <div className={s.careerSection}>
+                <h4 className={s.careerTitle}><Briefcase size={16}/>Career Timeline</h4>
+                <div className={s.timeline}>
+                  {CAREER.map((c, i) => (
+                    <div key={i} className={s.tlItem}>
+                      <div className={s.tlYear}>{c.year}</div>
+                      <div className={s.tlDot}/>
+                      <div className={s.tlInfo}>
+                        <div className={s.tlRole}>{c.role}</div>
+                        <div className={s.tlCompany}>{c.company}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Current Roles */}
+              <div className={s.rolesSection}>
+                <h4 className={s.careerTitle}>Current Leadership Roles</h4>
+                <div className={s.rolesGrid}>
+                  {[
+                    'Managing Director — Amon Heights Ltd',
+                    'Managing Director — Millpond Properties Ltd',
+                    'Managing Director — Savvy Steel Construction Ltd',
+                    'Chief Operating Officer — Blacklennial Media Ltd',
+                    'Managing Director — Redbridge Media Production Ltd',
+                  ].map(r => (
+                    <div key={r} className={s.roleItem}><CheckCircle2 size={14} style={{color:'var(--green)',flexShrink:0}}/>{r}</div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Expertise */}
+              <div className={s.expertiseSec}>
+                <h4 className={s.careerTitle}>Areas of Expertise</h4>
+                <div className={s.expertiseTags}>
+                  {['Strategic Leadership','People Management','Real Estate Development','Business Development','Negotiation & Persuasion','Strategic Marketing','Networking','Construction Management'].map(tag => (
+                    <span key={tag} className={s.expTag}>{tag}</span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Personal */}
+              <div className={s.personalSec}>
+                <p className={s.founderBio} style={{fontStyle:'italic',color:'var(--gray-400)',fontSize:'.85rem'}}>
+                  Beyond his professional accomplishments, Wale Akinmeji values work-life balance and enjoys counselling others, watching football, and spending quality time with family.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -291,11 +380,7 @@ export default function AboutPage() {
               </div>
             </div>
             <div className={s.pdfContent}>
-              <iframe
-                src="/company-profile.pdf"
-                title="Amon Heights Company Profile"
-                className={s.pdfFrame}
-              />
+              <iframe src="/company-profile.pdf" title="Amon Heights Company Profile" className={s.pdfFrame}/>
             </div>
           </div>
         </div>
